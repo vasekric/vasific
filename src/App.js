@@ -1,9 +1,10 @@
 import Component from './Component'
-import Resak from './Resak'
+import Vasific from './Vasific'
 import Store from './Store'
 
 import Header from './Header'
 import Body from './Body'
+import Texts from './Texts'
 
 
 class App extends Component {
@@ -12,19 +13,21 @@ class App extends Component {
         this.props = Store.state;
         this.children = {
             header: new Header(this.props),
-            body: new Body(this.props)
+            body: new Body(this.props),
+            texts: new Texts(this.props)
         };
     }
     render() {
         return `<div>
                     ${this.children.header.render()}
                     ${this.children.body.render()}
+                    ${this.children.texts.render()}
                 </div>`
     }
 }
 
 const app = new App();
-Resak.render(app, $("#App"));
+Vasific.render(app, "App");
 
 
 

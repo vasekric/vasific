@@ -7,7 +7,7 @@ export default class Header extends Component {
     render() {
         const {hello} = this.props;
         return `<div>
-                    <p>${hello}</p>
+                    <p>Header is: ${hello}</p>
                     <hr/>
                 </div>`
     }
