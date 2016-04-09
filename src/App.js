@@ -13,14 +13,16 @@ class App extends Component {
         this.props = Store.state;
         this.children = {
             header: new Header(this.props),
-            body: new Body(this.props),
-            texts: new Texts(this.props)
+            index: new Body(this.props),
+            texts: new Texts(this.props),
+            page404: new Component()
         };
+        this.router = new Router(this.children, "index", "page404");
     }
     render() {
         return `<div>
                     ${this.children.header.render()}
-                    ${this.children.body.render()}
+                    ${this.router.render()}
                     ${this.children.texts.render()}
                 </div>`
     }
@@ -28,7 +30,6 @@ class App extends Component {
 
 const app = new App();
 Vasific.render(app, "App");
-
 
 
 
